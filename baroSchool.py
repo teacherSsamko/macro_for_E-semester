@@ -44,27 +44,26 @@ finally:
 
 # driver.execute_script("arguments[0].value = '각리초등학교';", select)
 
-for g, v in enumerate(class_list.class_list):
 
-    driver.find_elements_by_css_selector('input.input')[1].send_keys(g+1)
+driver.find_elements_by_css_selector('input.input')[1].send_keys('4')
 
-    for c in v:
-        driver.find_elements_by_css_selector(
-            'input.input')[2].send_keys(str(v))
-        # students list
-        driver.find_elements_by_css_selector(
-            'textarea')[0].send_keys("이은섭, 김은섭, 박은섭, 정은섭, 최은섭")
 
-        # search
-        driver.find_elements_by_css_selector('button.is-info')[1].click()
+driver.find_elements_by_css_selector(
+    'input.input')[2].send_keys('5')
+# students list
+driver.find_elements_by_css_selector(
+    'textarea')[0].send_keys("이은섭, 김은섭, 박은섭, 정은섭, 최은섭")
 
-        # wait til search finished
-        try:
-            element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, 'button.is-success.is-fullwidth'))
-            )
+# search
+driver.find_elements_by_css_selector('button.is-info')[1].click()
 
-        finally:
-            driver.find_elements_by_css_selector(
-                'button.is-success.is-fullwidth')[0].click()
+# wait til search finished
+try:
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.CSS_SELECTOR, 'button.is-success.is-fullwidth'))
+    )
+
+finally:
+    driver.find_elements_by_css_selector(
+        'button.is-success.is-fullwidth')[0].click()
