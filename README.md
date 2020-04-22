@@ -8,3 +8,4 @@ tutorial.py
 baroschool.py
 
 # 매크로 만드는 방법
+https://ssamko.tistory.com/9
